@@ -1,7 +1,8 @@
 %define name gdl
-%define version 0.7.6
+%define version 0.7.7
 %define release %mkrel 1
 %define libname %mklibname %name 1
+%define libnamedev %mklibname -d %name
 
 Summary: Gnome Devtool Libraries
 Name: %{name}
@@ -50,13 +51,14 @@ The current pieces of GDL include:
  - A utility library that also contains the stubs and skels for
    the symbol browser and text editor components (gdl, idl).
 
-%package -n %libname-devel
+%package -n %libnamedev
 Group: Development/C
 Summary: Gnome Devtool Libraries - development components
 Requires: %libname = %version
 Provides: lib%name-devel = %version-%release
+Obsoletes: %mklibname -d gdl 1
 
-%description -n %libname-devel
+%description -n %libnamedev
 This package contains components and libraries that are intended to be
 shared between GNOME development tools, including gnome-debug,
 gnome-build, and anjuta2.
@@ -100,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/libgdl-1.so.0*
 %_libdir/libgdl-gnome-1.so.0*
 
-%files -n %libname-devel
+%files -n %libnamedev
 %defattr(-,root,root)
 %doc ChangeLog
 %_libdir/lib*.so
