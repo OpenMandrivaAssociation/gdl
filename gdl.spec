@@ -16,6 +16,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libgnomeui2-devel
 BuildRequires: libglade2.0-devel
 BuildRequires: perl-XML-Parser
+BuildRequires: chrpath
 
 
 %description
@@ -84,6 +85,7 @@ The current pieces of GDL include:
 rm -rf $RPM_BUILD_ROOT %name-1.lang
 %makeinstall_std
 %find_lang %name-1
+chrpath -d %buildroot%_libdir/lib*.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
