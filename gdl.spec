@@ -1,5 +1,5 @@
 %define name gdl
-%define version 0.7.8
+%define version 0.7.9
 %define release %mkrel 1
 %define libname %mklibname %name 1
 %define libnamedev %mklibname -d %name
@@ -109,5 +109,5 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/lib*.la
 %_libdir/pkgconfig/*
 %_includedir/*
-
+%_datadir/gtk-doc/html/gdl
 
