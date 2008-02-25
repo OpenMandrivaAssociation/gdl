@@ -1,5 +1,5 @@
 %define name gdl
-%define version 0.7.9
+%define version 0.7.10
 %define release %mkrel 1
 %define libname %mklibname %name 1
 %define libnamedev %mklibname -d %name
