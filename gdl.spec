@@ -1,6 +1,6 @@
 %define name gdl
 %define version 0.7.11
-%define release %mkrel 1
+%define release %mkrel 2
 %define libname %mklibname %name 1
 %define libnamedev %mklibname -d %name
 
