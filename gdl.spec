@@ -1,6 +1,6 @@
 %define name gdl
-%define version 0.7.11
-%define release %mkrel 2
+%define version 2.23.90
+%define release %mkrel 1
 %define libname %mklibname %name 1
 %define libnamedev %mklibname -d %name
 
@@ -15,7 +15,7 @@ Url: http://www.gnome.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libgnomeui2-devel
 BuildRequires: libglade2.0-devel
-BuildRequires: perl-XML-Parser
+BuildRequires: intltool
 BuildRequires: chrpath
 
 
