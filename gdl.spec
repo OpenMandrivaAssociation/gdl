@@ -1,5 +1,5 @@
 %define name gdl
-%define version 2.23.90
+%define version 2.24.0
 %define release %mkrel 1
 %define libname %mklibname %name 1
 %define libnamedev %mklibname -d %name
@@ -9,7 +9,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/gdl/%{name}-%{version}.tar.bz2
-License: GPL
+License: LGPLv2+
 Group: System/Libraries
 Url: http://www.gnome.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -106,7 +106,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname
 %defattr(-,root,root)
 %_libdir/libgdl-1.so.0*
-%_libdir/libgdl-gnome-1.so.0*
 
 %files -n %libnamedev
 %defattr(-,root,root)
