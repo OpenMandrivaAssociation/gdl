@@ -1,6 +1,6 @@
 %define name gdl
-%define version 2.24.0
-%define release %mkrel 2
+%define version 2.25.91
+%define release %mkrel 1
 %define libname %mklibname %name 1
 %define libnamedev %mklibname -d %name
 
@@ -9,6 +9,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/gdl/%{name}-%{version}.tar.bz2
+Patch: gdl-2.25.91-format-strings.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.gnome.org
@@ -76,6 +77,7 @@ The current pieces of GDL include:
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %configure2_5x
