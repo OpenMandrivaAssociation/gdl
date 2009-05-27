@@ -21,7 +21,7 @@ BuildRequires: libgnomeui2-devel
 BuildRequires: libglade2.0-devel
 BuildRequires: intltool
 BuildRequires: chrpath
-
+BuildRequires: gtk-doc
 
 %description
 This package contains components and libraries that are intended to be
