@@ -1,7 +1,9 @@
 %define name gdl
-%define version 2.27.1
+%define version 2.27.2
 %define release %mkrel 1
-%define libname %mklibname %name 1
+%define api 1
+%define major 2
+%define libname %mklibname %name %api %major
 %define libnamedev %mklibname -d %name
 
 Summary: Gnome Devtool Libraries
@@ -84,7 +86,7 @@ The current pieces of GDL include:
 %install
 rm -rf $RPM_BUILD_ROOT %name-1.lang
 %makeinstall_std
-%find_lang %name-1
+%find_lang %name-%{api}
 chrpath -d %buildroot%_libdir/lib*.so
 
 %clean
@@ -92,12 +94,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
 %postun -n %libname -p /sbin/ldconfig
 %endif
 
-%files -f %name-1.lang
+%files -f %name-%{api}.lang
 %defattr(-,root,root)
 %doc README NEWS MAINTAINERS AUTHORS
 %_datadir/%name
@@ -105,7 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root)
-%_libdir/libgdl-1.so.0*
+%_libdir/libgdl-%{api}.so.%{major}*
 
 %files -n %libnamedev
 %defattr(-,root,root)
