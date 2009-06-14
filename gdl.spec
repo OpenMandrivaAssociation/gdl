@@ -1,6 +1,6 @@
 %define name gdl
-%define version 2.27.2
-%define release %mkrel 2
+%define version 2.27.3
+%define release %mkrel 1
 %define api 1
 %define major 2
 %define libname %mklibname %name %api %major
@@ -11,8 +11,6 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/gdl/%{name}-%{version}.tar.bz2
-# http://bugzilla.gnome.org/show_bug.cgi?id=583963
-Patch1: gdl-2.27.2-readd-removed-header.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.gnome.org
@@ -80,8 +78,6 @@ The current pieces of GDL include:
 
 %prep
 %setup -q
-%patch1 -p1
-autoreconf
 
 %build
 %configure2_5x
