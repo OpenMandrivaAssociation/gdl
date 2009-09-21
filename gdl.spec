@@ -1,8 +1,8 @@
 %define name gdl
-%define version 2.27.92
+%define version 2.28.0
 %define release %mkrel 1
 %define api 1
-%define major 2
+%define major 3
 %define libname %mklibname %name %api %major
 %define libnamedev %mklibname -d %name
 
