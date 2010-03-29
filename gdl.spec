@@ -1,5 +1,5 @@
 %define name gdl
-%define version 2.29.92
+%define version 2.30.0
 %define release %mkrel 1
 %define api 1
 %define major 3
