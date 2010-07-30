@@ -17,6 +17,7 @@ Url: http://www.gnome.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libxml2-devel
 BuildRequires: gobject-introspection-devel
+BuildRequires: gtk+2.0-devel
 BuildRequires: intltool
 BuildRequires: chrpath
 BuildRequires: gtk-doc
