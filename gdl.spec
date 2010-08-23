@@ -1,6 +1,6 @@
 %define name gdl
-%define version 2.31.3
-%define release %mkrel 1
+%define version 2.30.0
+%define release %mkrel 2
 %define api 1
 %define major 3
 %define libname %mklibname %name %api %major
@@ -15,9 +15,8 @@ License: LGPLv2+
 Group: System/Libraries
 Url: http://www.gnome.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: libxml2-devel
-BuildRequires: gobject-introspection-devel
-BuildRequires: gtk+2-devel
+BuildRequires: libgnomeui2-devel
+BuildRequires: libglade2.0-devel
 BuildRequires: intltool
 BuildRequires: chrpath
 BuildRequires: gtk-doc
@@ -106,7 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root)
-%_libdir/girepository-1.0/Gdl-%{major}.typelib
 %_libdir/libgdl-%{api}.so.%{major}*
 
 %files -n %libnamedev
@@ -117,4 +115,4 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/pkgconfig/*
 %_includedir/*
 %_datadir/gtk-doc/html/gdl
-%_datadir/gir-1.0/Gdl-%{major}.gir
+
