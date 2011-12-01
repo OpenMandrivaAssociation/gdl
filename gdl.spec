@@ -84,13 +84,13 @@ The current pieces of GDL include:
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT %name-1.lang
+rm -rf %{buildroot} %name-1.lang
 %makeinstall_std
 %find_lang %name-%{api}
 chrpath -d %buildroot%_libdir/lib*.so
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
