@@ -8,7 +8,7 @@
 Summary:	Gnome Devtool Libraries
 Name:		gdl
 Version:	2.30.1
-Release:	10
+Release:	11
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
