@@ -52,7 +52,8 @@ This package contains the development files for %{name}.
 %setup -q
 
 %build
-%configure2_5x
+%global optflags %{optflags} -Wno-error -Wno-return-type
+%configure
 %make
 
 %install
