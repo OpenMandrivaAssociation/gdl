@@ -1,24 +1,23 @@
-%define url_ver %(echo %{version}|cut -d. -f1,2)
+%define api	3
+%define major	5
+%define libname	%mklibname %{name} %{api} %{major}
+%define devname	%mklibname -d %{name} %{api}
+%define girname	%mklibname %{name}-gir %{api}
 
-%define api	1
-%define major	3
-%define libname %mklibname %{name} %{api} %{major}
-%define devname %mklibname -d %{name}
-
-Summary:	Gnome Devtool Libraries
+Summary:	Gnome Development/Docking library
 Name:		gdl
-Version:	2.30.1
-Release:	12
+Version:	3.16.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gdl/%{url_ver}/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gdl/%{name}-%{version}.tar.xz
 
-BuildRequires:	chrpath
-BuildRequires:	gtk-doc
 BuildRequires:	intltool
-BuildRequires:	pkgconfig(libglade-2.0)
-BuildRequires:	pkgconfig(libgnomeui-2.0)
+BuildRequires:	pkgconfig(gdk-3.0)
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
+BuildRequires:	pkgconfig(libxml-2.0)
+%rename		gdl3
 
 %description
 This package contains components and libraries that are intended to be
@@ -32,46 +31,55 @@ The current pieces of GDL include:
    the symbol browser and text editor components (gdl, idl).
 
 %package -n %{libname}
-Summary:	Gnome Devtool Libraries - shared library
 Group:		System/Libraries
+Summary:	Gnome Development/Docking library - shared libraries
+Suggests:	%{name} = %{version}-%{release}
 
 %description -n %{libname}
-This package contains a shared library for %{name}.
+This package contains the dynamic libraries from %{name}.
+
+%package -n %{girname}
+Group:		System/Libraries
+Summary:	GObject Introspection interface library for %{name}
+
+%description -n %{girname}
+GObject Introspection interface library for %{name}.
 
 %package -n %{devname}
-Summary:	Gnome Devtool Libraries - development components
 Group:		Development/C
-Requires:	%{libname} = %{version}
+Summary:	Gnome Development/Docking library headers and development libraries
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
-This package contains the development files for %{name}.
-
+This packages contains the headers and libraries for %{name}.
 
 %prep
-%setup -q
+%setup -qn %{name}-%{version}
 
 %build
-%global optflags %{optflags} -Wno-error -Wno-return-type
 %configure
+
 %make
 
 %install
 %makeinstall_std
 %find_lang %{name}-%{api}
-chrpath -d %buildroot%{_libdir}/lib*.so
 
 %files -f %{name}-%{api}.lang
-%doc README NEWS MAINTAINERS AUTHORS
-%{_datadir}/%{name}
 
 %files -n %{libname}
 %{_libdir}/libgdl-%{api}.so.%{major}*
 
+%files -n %{girname}
+%{_libdir}/girepository-1.0/Gdl-%{api}.typelib
+
 %files -n %{devname}
-%doc ChangeLog
+%doc ChangeLog README NEWS MAINTAINERS AUTHORS
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
 %{_includedir}/*
-%{_datadir}/gtk-doc/html/gdl
+%{_datadir}/gtk-doc/html/gdl-*
+%{_datadir}/gir-1.0/Gdl-%{api}.gir
 
