@@ -6,8 +6,8 @@
 
 Summary:	Gnome Development/Docking library
 Name:		gdl
-Version:	3.16.0
-Release:	4
+Version:	3.28.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
@@ -61,10 +61,10 @@ This packages contains the headers and libraries for %{name}.
 %build
 %configure
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name}-%{api}
 
 %files -f %{name}-%{api}.lang
