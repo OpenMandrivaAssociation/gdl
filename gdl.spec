@@ -6,7 +6,7 @@
 
 Summary:	Gnome Development/Docking library
 Name:		gdl
-Version:	3.28.0
+Version:	3.40.0
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
