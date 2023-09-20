@@ -7,11 +7,11 @@
 Summary:	Gnome Development/Docking library
 Name:		gdl
 Version:	3.40.0
-Release:	4
+Release:	5
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gdl/%{name}-%{version}.tar.xz
+Url:		https://www.gnome.org
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/gdl/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gdk-3.0)
